@@ -2,13 +2,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>video 1 Wmedia</title>
+	<title>video 6 Renderizado de listas</title>
 </head>
 <body>
 	<main>
-		<h2>{{mensaje}}</h2>
-		<input type="text" v-model="mensaje">
-		<pre>{{$data}}</pre>
+		<!--<h2>{{mensaje}}</h2>
+		<h2>{{mensajeAlreves}}</h2>-->
+		<ul>
+			<li v-for="tarea in tareasPorAntiguedad">{{tarea.titulo}}</li>
+		</ul>
+		<pre>{{ $data }}</pre>
 	</main>
 	<script type="text/javascript" src="js/vue.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
