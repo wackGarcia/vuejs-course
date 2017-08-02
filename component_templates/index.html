@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>video Components Templates Wmedia</title>
+</head>
+<body>
+	<main>
+        <elegir-ganador 
+            :listado="personas"></elegir-ganador>
+        <pre>{{ $data }}</pre>
+    </main>
+    <template id="elegir-ganador-template">
+        <div>
+            <template v-if="ganador">
+                <h1 v-if="ganador">El ganador es : {{ganador}}<h1>
+            </template>
+            <template v-else>
+                <h1>Participantes</h1>
+                <ul>
+                    <li v-for="persona in listado"> {{ persona }} </li>
+                </ul>
+            </template>
+            <button @click = "elegirGanador">Elegir Ganador</button>
+        </div>
+    </template>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
