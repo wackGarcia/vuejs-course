@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>propiedades</title>
+</head>
+<body>
+	<main>
+        <candidato 
+            v-for = "candidato in candidatos"
+            :nombre = "candidato.name.first"
+            :correo = "candidato.email"
+            :imagen = "candidato.picture.thumbnail"
+            :location = "candidato.location">
+        </candidato>
+
+        <pre>{{$data}}</pre>
+    </main>
+    <template id="candidato-template">
+        
+        <blockquote>
+            <hr/>
+            <img :src="imagen" align = "right">
+            <h1>{{ nombre }}</h1>
+            <h2>{{correo}}</h2>
+            <ul>
+                <li v-for="(value,key,index) in location">
+                    {{value}}
+                </li>
+            </ul>
+        </blockquote>
+    </template>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
