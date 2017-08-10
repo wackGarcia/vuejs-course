@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>propiedades</title>
+</head>
+<body>
+	<main>
+        <mis-tareas :listado="tareas">
+            <template slot="tareas" scope="datos">
+                <li><h2>{{datos.title}}</h2></li>
+            </template>
+        </mis-tareas>
+    </main>
+    <template id="mis-tareas-template">
+        <ul>
+            <slot 
+                name = "tareas"
+                v-for="tarea in listado"
+                :title = "tarea.titulo"></slot>
+        </ul>
+    </template>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>propiedades</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+	<main>
+        <div class="container-fluid">
+            <alerta @ocultar="mostrarExito = false" 
+                    tipo="alert alert-success text-center" 
+                    posicion="alerta--centro"
+                    v-show="mostrarExito">
+                <div slot="header">
+                    <a href="#" 
+                       class="alert-close"
+                       @click = "cerrar_mensaje">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </a>
+                    <h3>¡Muy bien hecho!</h3>
+                </div>
+                <p slot="body">este es mi nuevo mensaje con slots</p>
+                <h4 slot="footer">:)</h4>
+            </alerta>
+            <alerta @ocultar="mostrarInfo = false"  
+                    tipo="alert alert-info text-center" 
+                    posicion="alerta--abajo-derecha"
+                    v-show = "mostrarInfo">
+                <div slot="header">
+                    <a href="#" 
+                       class="alert-close"
+                       @click = "cerrar_mensaje">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </a>
+                    <h3>¡Bien hecho!</h3>
+                </div>
+                <p slot="body">este es mi nuevo mensaje con slots</p>
+                <h4 slot="footer">OK</h4>
+            </alerta>
+            <alerta @ocultar="mostrarWarnin = false" 
+                    tipo="alert alert-warning text-center" 
+                    posicion="alerta--arriba-derecha"
+                    v-show = "mostrarWarnin">
+                <div slot="header">
+                    <a href="#" 
+                       class="alert-close"
+                       @click = "cerrar_mensaje">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </a>
+                    <h3>¡Mal hecho!</h3>
+                </div>
+                <p slot="body">este es mi nuevo mensaje con slots</p>
+                <h4 slot="footer">:/</h4>
+            </alerta>
+            <alerta @ocultar="mostrarError = false" 
+                    tipo="alert alert-danger text-center" 
+                    posicion="alerta--arriba-izquierda"
+                    v-show="mostrarError">
+                <div slot="header">
+                    <a  href="#"
+                        class="alert-close"
+                        @click = "cerrar_mensaje"
+                       >
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </a>
+                    <h3>¡Muy mal hecho!</h3>
+                </div>
+                <p slot="body">este es mi nuevo mensaje con slots</p>
+                <h4 slot="footer">OK</h4>
+            </alerta>
+        <pre>{{$data}}</pre>
+        </div>
+    </main>
+
+     <template id = "alert">
+        <section class="alerta" :class="[tipo,posicion]">
+            <header class="alerta_header">
+                <slot name="header">
+                    titulo del mensaje
+                </slot>
+            </header>
+            <div class="alerta_contenido">
+                <slot name="body">
+                    cuerpo del mensaje
+                </slot>
+            </div>
+            <footer class="alerta_footer">
+                <slot name="footer">
+                    pie del mensaje
+                </slot>
+            </footer>        
+        </section>
+    </template> 
+    
+    <script type="text/javascript" src="js/jquery-3.2.1.slim.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
