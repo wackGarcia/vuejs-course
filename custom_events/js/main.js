@@ -5,14 +5,14 @@ Vue.component("alerta", {
 new Vue({
   el: "main",
   data: {
-    mostrarExito: true,
+    mostrarExito: false,
     mostrarInfo: false,
     mostrarWarnin: false,
     mostrarError: false
   },
   methods: {
     cerrar_mensaje() {
-      this.$emit("ocultar");
+      this.$emit('ocultar');
     }
   }
  

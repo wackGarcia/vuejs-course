@@ -12,7 +12,7 @@
 <body>
 	<main>
         <div class="container-fluid">
-            <alerta @ocultar="mostrarExito = false" 
+            <alerta v-on:ocultar="mostrarExito = false" 
                     tipo="alert alert-success text-center" 
                     posicion="alerta--centro"
                     v-show="mostrarExito">
@@ -27,7 +27,7 @@
                 <p slot="body">este es mi nuevo mensaje con slots</p>
                 <h4 slot="footer">:)</h4>
             </alerta>
-            <alerta @ocultar="mostrarInfo = false"  
+            <alerta v-on:ocultar="mostrarInfo = false"  
                     tipo="alert alert-info text-center" 
                     posicion="alerta--abajo-derecha"
                     v-show = "mostrarInfo">
@@ -42,7 +42,7 @@
                 <p slot="body">este es mi nuevo mensaje con slots</p>
                 <h4 slot="footer">OK</h4>
             </alerta>
-            <alerta @ocultar="mostrarWarnin = false" 
+            <alerta v-on:ocultar="mostrarWarnin = false" 
                     tipo="alert alert-warning text-center" 
                     posicion="alerta--arriba-derecha"
                     v-show = "mostrarWarnin">
@@ -57,7 +57,7 @@
                 <p slot="body">este es mi nuevo mensaje con slots</p>
                 <h4 slot="footer">:/</h4>
             </alerta>
-            <alerta @ocultar="mostrarError = false" 
+            <alerta v-on:ocultar = "mostrarError = false" 
                     tipo="alert alert-danger text-center" 
                     posicion="alerta--arriba-izquierda"
                     v-show="mostrarError">
