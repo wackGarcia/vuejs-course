@@ -16,53 +16,56 @@
 <body>
     <main>
         <div class="container-fluid">
-                LoopBack framework
+            LoopBack framework
             <div class="col-sm-2 col-md-2"></div>
             <div class="topAndBottom sombreado1 col-xs-12 col-sm-8 col-md-8">
-                    <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Email</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                              </tr>
-                              <tr>
-                                <td>Mary</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
-                              </tr>
-                              <tr>
-                                <td>July</td>
-                                <td>Dooley</td>
-                                <td>july@example.com</td>
-                              </tr>
-                            </tbody>
-                          </table>
                 <hr>
-                <listado-productos :productos = "productos"></listado-productos>
-                <!-- <carrito-compra></carrito-compra> -->
+                <listado-productos :productos="productos"></listado-productos>
                 <hr>
+                <carrito-compra></carrito-compra>
             </div>
-            <!-- <pre>{{$data}}</pre> -->
+            <div class="col-sm-2 col-md-2">
+                <pre>{{$data}}</pre>
+            </div>
         </div>
     </main>
     <template id="listado_productos">
-        <ul>
-            <li v-for="producto in productos">
-                {{producto.producto}}
-                <small>{{producto.precio}}</small>
-                <button @click="eliminarProducto(producto.precio)">-</button>
-                <button @click="anadirProducto(producto.precio)">+</button>
-            </li>
-        </ul>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">Producto</th>
+                        <th class="text-center">Precio</th>
+                        <th class="text-center">Quitar</th>
+                        <th class="text-center">Agregar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="producto in productos"
+                        class="text-center">
+                        <td>{{producto.producto}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>
+                            <button @click="eliminarProducto(producto.precio)" class="btn btn-default">
+                                <span class = "glyphicon glyphicon-minus"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <button @click="anadirProducto(producto.precio)" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </template>
+    <template id="carrito_de_compras">
+        <div class=" totoal_posicion col-xs-12 col-sm-6 col-md-6">
+            <div class="alert alert-success">
+                <p>Total: <strong>{{total}}</strong> $  , <strong>{{cantidadProductos}}</strong> Productos</p>
+            </div>
+        </div>
+    </template>
+
     <script type="text/javascript" src="js/jquery-3.2.1.slim.js"></script>
     <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript" src="js/main.js"></script>

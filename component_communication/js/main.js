@@ -1,26 +1,51 @@
+const eventBus = new Vue();
+
 Vue.component('listado-productos',{
     props: ['productos'],
     template: "#listado_productos",
     methods:{
-        eliminarProducto(precio){
+        eliminarProducto(precio){ 
             console.log("eliminar")
+            eventBus.$emit('eliminar',precio)
         },
         anadirProducto(precio){
             console.log("agregar")
+            eventBus.$emit('anadir',precio)
         }
     }
 });
 
+Vue.component('carrito-compra',{
+    template:"#carrito_de_compras",
+    data(){
+        return {
+            cantidadProductos:0,
+            total:0,
+        }
+    },
+    created(){
+        eventBus.$on('anadir',(precio)=>{
+            console.log(precio)
+            this.total += precio;
+            this.cantidadProductos ++;
+        }),
+        eventBus.$on('eliminar',(precio)=>{
+            console.log(precio)
+            this.total -= precio;
+            this.cantidadProductos --;
+        })
+    }
+});
 new Vue({
   el: "main",
   data: {
     productos: [
-      { producto: "Té Dharamsala", precio: 12 },
-      { producto: "Cerveza tibetana Barley", precio: 12 },
-      { producto: "Sirope de regaliz", precio: 12 },
+      { producto: "Té Dharamsala", precio: 11.45 },
+      { producto: "Cerveza tibetana Barley", precio: 32 },
+      { producto: "Sirope de regaliz", precio: 14.99 },
       { producto: "Especias Cajun del chef Anton", precio: 12 },
-      { producto: "Mezcla Gumbo del chef Anton", precio: 12 },
-     /* { producto: "Mermelada de grosellas de la abuela", precio: 12 },
+      /*{ producto: "Mezcla Gumbo del chef Anton", precio: 32.50 },
+      { producto: "Mermelada de grosellas de la abuela", precio: 150.50 },
       { producto: "Peras secas orgánicas del tío Bob", precio: 12 },
       { producto: "Salsa de arándanos Northwoods", precio: 12 },
       { producto: "Buey Mishi Kobe", precio: 12 },
