@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.Js</title>
+</head>
+
+<body>
+    <main>
+        <button @click="seleccionado = 'tareas'">Tareas</button>
+        <button @click="seleccionado = 'contacto'">contacto</button>
+        <button @click="seleccionado = 'bio'">biografia</button>
+
+        <component :is = "seleccionado"></component>
+        <!-- <tareas></tareas>
+        <contacto></contacto>
+        <bio></bio> -->
+    </main>
+    <template id="lista-tareas">
+        <ul>
+            <li v-for = "tarea in tareas" >{{tarea}}</li>
+        </ul>
+    </template>
+    <template id="lista-contacto">
+        <ul>
+            <li>{{contacto}}</li>
+        </ul>
+    </template>
+    <template id="lista-bio">
+        <ul>
+            <li>{{bio}}</li>
+        </ul>
+    </template>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

@@ -26,13 +26,17 @@ Vue.component('carrito-compra',{
     created(){
         eventBus.$on('anadir',(precio)=>{
             console.log(precio)
-            this.total += precio;
-            this.cantidadProductos ++;
+            if(this.total >= 0){
+                this.total += precio;
+                this.cantidadProductos ++;
+            }
         }),
         eventBus.$on('eliminar',(precio)=>{
             console.log(precio)
-            this.total -= precio;
-            this.cantidadProductos --;
+            if(this.total > 0){
+                this.total -= precio;
+                this.cantidadProductos --;
+            }
         })
     }
 });

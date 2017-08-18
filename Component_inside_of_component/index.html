@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>video Components Templates Wmedia</title>
+</head>
+<body>
+	<main>
+       <lista-tareas :tareas="tareas">
+       </lista-tareas>
+    </main>
+    <template id="listarTareas">
+       <ul>
+           <tarea v-for="tarea in tareas" :tarea="tarea"></tarea>
+       </ul>
+    </template>
+    <template id="tareas">
+        <li>{{tarea}}</li>
+    </template>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
